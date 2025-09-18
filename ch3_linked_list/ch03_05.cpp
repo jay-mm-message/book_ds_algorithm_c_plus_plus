@@ -80,6 +80,20 @@ void remove_specified_position(int index, list &orig) {
 	cout << "After deleting an the specified position: " << index << endl;
 }
 
+void free_st_information_list(list &orig) {
+
+	if (orig == nullptr) return;
+
+	list ptr = orig;
+	while(ptr != nullptr) {
+		list tmp = ptr;
+		ptr = ptr->next;
+		delete tmp;
+	}
+	orig = nullptr;
+	cout << "After freeing all elements in st_information.\n" << endl;
+}
+
 int main() {
 	const int size = 5;
 	int st_no[size] = {1, 2, 3, 4 , 5};
@@ -101,5 +115,13 @@ int main() {
 	print_st_info_list(head);
 	remove_specified_position(2, head);
 	print_st_info_list(head);
+
+	free_st_information_list(head);
+	if (head != nullptr) {
+		cout << "The st_information not freed.\n" << endl;
+	} else {
+		cout << "The st_information freed successfully.\n" << endl;
+	}
+
 	return 0;
 }
