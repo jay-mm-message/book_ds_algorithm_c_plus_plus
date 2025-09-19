@@ -5,5 +5,8 @@ if [ -f "a.out" ]; then
 	echo "remove a.out"
 fi
 
-g++ $1; ./a.out
-
+if [ "$1" == "" ]; then
+	echo "Please type file name.";
+else
+	g++ $1; ./a.out
+fi
