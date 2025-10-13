@@ -26,14 +26,15 @@ class Stack {
 };
 typedef Stack *stack_link;
 
+template<class T>
 class Node {
 	public:
-		int data;
+		T data;
 		Node *next;
 	public:
-		Node(int d) : data(d), next(nullptr) {};
+		Node(T d) : data(d), next(nullptr) {};
 };
-typedef Node *list;
+typedef Node<int> *list;
 
 class LinkList {
 	public:
@@ -46,7 +47,7 @@ class LinkList {
 			return false;
 		}
 		void linklist_push(int data) {
-			list new_node = new Node(data);
+			list new_node = new Node<int>(data);
 			if (nullptr == top) {
 				top = new_node;
 				return;
